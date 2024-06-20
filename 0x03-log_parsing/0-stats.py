@@ -31,7 +31,6 @@ if __name__ == '__main__':
         for line in sys.stdin:
             if count_lines != 0 and count_lines % 10 == 0:
                 print_stats(status_codes, file_size)
-
             count_lines += 1
             parsed_line = line.split()
             try:
