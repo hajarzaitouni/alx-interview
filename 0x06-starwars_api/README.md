@@ -1,0 +1,2 @@
+# 0x06. Star Wars API
+This project interacts with the Star Wars API (swapi-api.alx-tools.com) to fetch and display information about characters from specific Star Wars movies. It uses Node.js and the request module to make HTTP requests to the API endpoints and retrieve character data.
