@@ -16,7 +16,7 @@ const printName = (names, i = 0) => {
   }
   request(names[i], (err, response, body) => {
     if (err) {
-        throw err;
+      throw err;
     }
     const character = JSON.parse(body);
     console.log(character.name);
