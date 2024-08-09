@@ -22,26 +22,25 @@ def calculates_primes(max_num):
 
 
 def isWinner(x, nums):
-    """ Prime Game """
+    """ Define the winner of the game """
     if x < 1 or not nums:
         return None
     n = max(nums)
     primes = calculates_primes(n)
-    prime_count = [0] * (n + 1)
-    count = 0
-    for i in range(1, n + 1):
-        if i in primes:
-            count += 1
-        prime_count[i] = count
-    winner = 0
+    prime_set = set(primes)
+
+    score = {"Maria": 0, "Ben": 0}
+
     for n in nums:
-        winner += prime_count[n] % 2 == 1
-    if winner * 2 == len(nums):
-        return None
-    if winner * 2 == 0:
-        return None
-    if winner * 2 == len(nums):
-        return None
-    if winner > len(nums) - winner:
+        count = sum(1 for i in range(1, n + 1) if i in prime_set)
+
+        if count % 2 == 0:
+            score["Ben"] += 1
+        else:
+            score["Maria"] += 1
+
+    if score["Maria"] > score["Ben"]:
         return "Maria"
-    return "Ben"
+    if score["Maria"] < score["Ben"]:
+        return "Ben"
+    return None
